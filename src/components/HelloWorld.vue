@@ -79,6 +79,9 @@
           awesome-vue
         </a>
       </li>
+      <li>
+        <router-link to="/restaurant">Gourmet</router-link>
+      </li>
     </ul>
   </div>
 </template>
