@@ -7,7 +7,7 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <h2 class="display-3">A Warm Welcome!</h2>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+      <p class="lead">I created this page with about a day's work. <br>I would like to continue to enhance the front technology. And I want to be foodie.</p>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <input type="text" id="free_word" class="form-control mr-sm-2" v-model="keyword" placeholder="フリーワード" aria-label="フリーワード">
 
@@ -113,7 +113,8 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get(`http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${this.hotApiKey}&large_area=Z011&count=20&format=json`).then((res) => {
+    this.largeAreaCd = 'Z011'
+    this.$axios.get(`http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${this.hotApiKey}&large_area=${this.largeAreaCd}&count=20&format=json`).then((res) => {
       const results = res.data.results
       this.restaurantList = results.shop
       this.resultsCount = results.results_available
